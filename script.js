@@ -112,6 +112,14 @@
     hero.style.setProperty('--mx', e.clientX - r.left + 'px'); hero.style.setProperty('--my', e.clientY - r.top + 'px');
   });
 
+  // Resume popup (opens only when requested)
+  const rd = $('#resume-dlg');
+  const openResume = () => { if (!rd.open) rd.showModal(); };
+  $$('.open-resume, a[href="#resume"]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); setMenu(false); openResume(); }));
+  $('#rclose').addEventListener('click', () => rd.close());
+  rd.addEventListener('click', e => { if (e.target === rd) rd.close(); });
+  if (location.hash === '#resume') openResume();
+
   // Mobile menu
   const burger = $('.burger'), menu = $('#menu');
   const setMenu = (open) => { menu.classList.toggle('open', open); burger.setAttribute('aria-expanded', open); };
@@ -155,3 +163,5 @@
     location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(v('s'))}&body=${encodeURIComponent(body)}`;
   });
 })();
+
+ 
