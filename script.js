@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const EMAIL = 'poojaprabhu.mca.2026@pim.ac.in';
+  const EMAIL = 'poojaprabhujan23@gmail.com';
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   document.documentElement.classList.add('js');
